@@ -3,7 +3,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = '1.0b1'
+version = '1.0b2.dev0'
 description = "A very basic Dexterity-based container to be used as a microsite.",
 long_description = (
     open("README.rst").read() + "\n" +
