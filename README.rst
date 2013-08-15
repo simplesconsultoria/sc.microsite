@@ -12,6 +12,17 @@ A very basic Dexterity-based container to be used as a microsite.
 This is a transitional content type to be used while the Dexterity version of
 the **File** content type is not available by default.
 
+Mostly Harmless
+---------------
+
+.. image:: https://secure.travis-ci.org/simplesconsultoria/sc.microsite.png?branch=master
+    :target: http://travis-ci.org/simplesconsultoria/sc.microsite
+
+.. image:: https://coveralls.io/repos/simplesconsultoria/sc.microsite/badge.png?branch=master
+    :target: https://coveralls.io/r/simplesconsultoria/sc.microsite
+
+Got an idea? Found a bug? Let us know by `opening a support ticket`_.
+
 Don't Panic
 -----------
 
@@ -44,3 +55,5 @@ Use
 ^^^
 
 TBA.
+
+.. _`opening a support ticket`: https://github.com/simplesconsultoria/sc.microsite/issues
