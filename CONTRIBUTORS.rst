@@ -5,5 +5,8 @@ Share and Enjoy
 the following people:
 
 - Héctor Velarde
+- `Xenatt`_ (icon)
 
 Development sponsored by Simples Consultoria.
+
+.. _`Xenatt`: https://www.iconfinder.com/iconsets/minimalism
