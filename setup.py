@@ -36,7 +36,7 @@ setup(
     keywords='plone microsite',
     author='Simples Consultoria',
     author_email='products@simplesconsultoria.com.br',
-    url='https://bitbucket.org/simplesconsultoria/sc.microsite',
+    url='https://github.com/simplesconsultoria/sc.microsite',
     license='GPLv2',
     packages=find_packages('src'),
     package_dir={'': 'src'},
