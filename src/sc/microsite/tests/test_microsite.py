@@ -3,6 +3,7 @@
 from collective.behavior.localdiazo.behavior import ILocalDiazo
 from collective.behavior.localregistry.behavior import ILocalRegistry
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
+from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.dexterity.interfaces import IDexterityFTI
@@ -55,6 +56,9 @@ class CoverIntegrationTestCase(unittest.TestCase):
 
     def test_localregistry_behavior(self):
         self.assertTrue(ILocalRegistry.providedBy(self.m1))
+    
+    def test_navigation_root_behavior(self):
+        self.assertTrue(INavigationRoot.providedBy(self.m1))
 
     def test_microsite_selectable_as_folder_default_view(self):
         self.folder.setDefaultPage('m1')
