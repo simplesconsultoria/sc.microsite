@@ -6,6 +6,7 @@ the following people:
 
 - Héctor Velarde
 - `Xenatt`_ (icon)
+- Juan Pablo Giménez
 
 Development sponsored by Simples Consultoria.
 

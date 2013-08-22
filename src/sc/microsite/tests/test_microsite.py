@@ -63,3 +63,12 @@ class CoverIntegrationTestCase(unittest.TestCase):
     def test_microsite_selectable_as_folder_default_view(self):
         self.folder.setDefaultPage('m1')
         self.assertEqual(self.folder.default_page, 'm1')
+
+    def test_microsite_layouts(self):
+        self.assertEqual(self.m1.getAvailableLayouts(),
+                         [('folder_summary_view', 'Summary view'),
+                          ('folder_full_view', 'All content'),
+                          ('folder_tabular_view', 'Tabular view'),
+                          ('atct_album_view', 'Thumbnail view'),
+                          ('folder_listing', 'Standard view')])
+        self.assertEqual(self.m1.getLayout(), 'folder_listing')
