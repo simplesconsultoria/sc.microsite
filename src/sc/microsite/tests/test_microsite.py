@@ -11,8 +11,10 @@ from sc.microsite.interfaces import IMicrosite
 from sc.microsite.testing import INTEGRATION_TESTING
 from zope.component import createObject
 from zope.component import queryUtility
+from Products.CMFPlone.utils import _createObjectByType
 
 import unittest
+from Products.ATContentTypes.lib.constraintypes import ACQUIRE
 
 
 class CoverIntegrationTestCase(unittest.TestCase):
@@ -72,3 +74,11 @@ class CoverIntegrationTestCase(unittest.TestCase):
                           ('atct_album_view', 'Thumbnail view'),
                           ('folder_listing', 'Standard view')])
         self.assertEqual(self.m1.getLayout(), 'folder_listing')
+
+    def test_microsite_constrain(self):
+        self.assertEqual(self.m1.getLocallyAllowedTypes(), [])
+        self.assertEqual(self.m1.getImmediatelyAddableTypes(), [])
+        _createObjectByType("Folder", self.m1, 'subfolder')
+        self.m1.subfolder.setConstrainTypesMode(ACQUIRE)
+        self.assertEqual(self.m1.subfolder.getLocallyAllowedTypes(), [])
+        self.assertEqual(self.m1.subfolder.getImmediatelyAddableTypes(), [])
