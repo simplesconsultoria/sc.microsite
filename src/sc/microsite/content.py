@@ -3,7 +3,6 @@
 from five import grok
 from plone.dexterity.content import Container
 from sc.microsite.interfaces import IMicrosite
-from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from Products.CMFCore.utils import getToolByName
 
 
