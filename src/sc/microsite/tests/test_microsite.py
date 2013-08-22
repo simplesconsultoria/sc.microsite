@@ -56,7 +56,7 @@ class CoverIntegrationTestCase(unittest.TestCase):
 
     def test_localregistry_behavior(self):
         self.assertTrue(ILocalRegistry.providedBy(self.m1))
-    
+
     def test_navigation_root_behavior(self):
         self.assertTrue(INavigationRoot.providedBy(self.m1))
 
