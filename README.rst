@@ -47,12 +47,11 @@ Go to the 'Site Setup' page in a Plone site and click on the 'Add-ons' link.
 Check the box next to ``sc.microsite`` and click the 'Activate' button.
 
 .. Note::
-
 	You may have to empty your browser cache and save your resource registries
 	in order to see the effects of the product installation.
 
-Use
-^^^
+Usage
+^^^^^
 
 TBA.
 
