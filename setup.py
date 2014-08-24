@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from setuptools import find_packages
 from setuptools import setup
 
@@ -33,11 +32,10 @@ setup(
         "Topic :: Office/Business :: News/Diary",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    keywords='plone microsite',
+    keywords='plone microsite dexterity',
     author='Simples Consultoria',
     author_email='products@simplesconsultoria.com.br',
     url='https://github.com/simplesconsultoria/sc.microsite',
-    license='GPLv2',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     namespace_packages=['sc'],
@@ -48,10 +46,13 @@ setup(
         'collective.behavior.localregistry',
         'five.grok',
         'plone.api',
-        'plone.app.dexterity[grok,relations]',
+        'plone.app.content',
+        'plone.app.dexterity [grok, relations]',
+        'plone.app.layout',
+        'plone.app.theming >=1.1.1',
         'plone.dexterity',
         'plone.directives.form',
-        'Products.CMFPlone>=4.2',
+        'Products.CMFPlone >=4.2',
         'Products.GenericSetup',
         'setuptools',
         'zope.i18nmessageid',
