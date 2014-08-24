@@ -10,9 +10,9 @@
         profile="sc.microsite:default">
 
       <gs:upgradeStep
-          title="Null Handler"
-          description="Aplicacao de configuracao padrao."
-          handler=".handler.do_upgrade"
+          title="Enable IPublication"
+          description="IPublication behavior will be available by default for sc.microsite"
+          handler=".handler.enable_ipublication"
           />
 
   </gs:upgradeSteps>
