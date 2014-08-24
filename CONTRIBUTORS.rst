@@ -5,8 +5,8 @@ Share and Enjoy
 the following people:
 
 - Héctor Velarde
-- `Xenatt`_ (icon)
 - Juan Pablo Giménez
+- `Xenatt`_ (icon)
 
 Development sponsored by Simples Consultoria.
 
