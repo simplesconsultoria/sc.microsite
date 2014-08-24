@@ -9,9 +9,6 @@ Life, the Universe, and Everything
 
 A very basic Dexterity-based container to be used as a microsite.
 
-This is a transitional content type to be used while the Dexterity version of
-the **File** content type is not available by default.
-
 Mostly Harmless
 ---------------
 
