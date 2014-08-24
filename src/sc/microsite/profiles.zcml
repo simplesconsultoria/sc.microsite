@@ -7,7 +7,7 @@
   <!-- Profiles -->
   <gs:registerProfile
       name="default"
-      title="sc.microsite"
+      title="Microsite"
       description="A very basic Dexterity-based container to be used as a microsite."
       directory="profiles/default"
       provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -15,9 +15,9 @@
 
   <gs:registerProfile
       name="uninstall"
-      title="sc.microsite uninstall"
+      title="Microsite (Uninstall)"
       directory="profiles/uninstall"
-      description="Uninstall profile for the sc.microsite package."
+      description="Uninstall profile for the Microsite package."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
