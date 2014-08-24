@@ -24,5 +24,10 @@
   <!-- Include upgrades -->
   <include package='.upgrades' />
 
+  <!-- Hide from quickinstaller -->
+  <utility factory=".config.HiddenProducts" name="sc.microsite" />
+
+  <!-- Hide from site creation -->
+  <utility factory=".config.HiddenProfiles" name="sc.microsite" />
 
 </configure>
