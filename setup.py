@@ -47,6 +47,7 @@ setup(
         'collective.behavior.localdiazo',
         'collective.behavior.localregistry',
         'five.grok',
+        'plone.api',
         'plone.app.dexterity[grok,relations]',
         'plone.dexterity',
         'plone.directives.form',

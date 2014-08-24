@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
-
 from collective.behavior.localdiazo.behavior import ILocalDiazo
 from collective.behavior.localregistry.behavior import ILocalRegistry
+from plone import api
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.app.layout.navigation.interfaces import INavigationRoot
-from plone.app.testing import setRoles
-from plone.app.testing import TEST_USER_ID
 from plone.dexterity.interfaces import IDexterityFTI
+from Products.ATContentTypes.lib.constraintypes import ACQUIRE
+from Products.CMFPlone.utils import _createObjectByType
 from sc.microsite.interfaces import IMicrosite
 from sc.microsite.testing import INTEGRATION_TESTING
 from zope.component import createObject
 from zope.component import queryUtility
-from Products.CMFPlone.utils import _createObjectByType
 
 import unittest
-from Products.ATContentTypes.lib.constraintypes import ACQUIRE
 
 
 class CoverIntegrationTestCase(unittest.TestCase):
@@ -24,13 +22,10 @@ class CoverIntegrationTestCase(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
 
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        self.portal.invokeFactory('Folder', 'test-folder')
-        setRoles(self.portal, TEST_USER_ID, ['Member'])
-        self.folder = self.portal['test-folder']
+        with api.env.adopt_roles(['Manager']):
+            self.folder = api.content.create(self.portal, 'Folder', 'test')
 
-        self.folder.invokeFactory('sc.microsite', 'm1')
-        self.m1 = self.folder['m1']
+        self.m1 = api.content.create(self.folder, 'sc.microsite', 'm1')
 
     def test_adding(self):
         self.assertTrue(IMicrosite.providedBy(self.m1))
