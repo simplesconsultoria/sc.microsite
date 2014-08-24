@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:gs="http://namespaces.zope.org/genericsetup">
+  
+  <!-- Upgrade Steps -->
+  <gs:upgradeSteps
+        source="1"
+        destination="1000"
+        profile="sc.microsite:default">
+
+      <gs:upgradeStep
+          title="Null Handler"
+          description="Aplicacao de configuracao padrao."
+          handler=".handler.do_upgrade"
+          />
+
+  </gs:upgradeSteps>
+
+</configure>

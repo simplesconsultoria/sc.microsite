@@ -1,10 +1,11 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="sc.microsite">
 
-  <genericsetup:registerProfile
+  <!-- Profiles -->
+  <gs:registerProfile
       name="default"
       title="sc.microsite"
       description="A very basic Dexterity-based container to be used as a microsite."
@@ -12,7 +13,7 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <genericsetup:registerProfile
+  <gs:registerProfile
       name="uninstall"
       title="sc.microsite uninstall"
       directory="profiles/uninstall"
@@ -20,14 +21,8 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <!-- Include upgrades -->
+  <include package='.upgrades' />
 
-  <genericsetup:upgradeStep
-      title="Upgrade sc.microsite to 2"
-      description="Upgrade sc.microsite views."
-      source="*"
-      destination="2"
-      handler=".upgradehandlers.upgrade_to_2"
-      profile="sc.microsite:default"
-      />
 
 </configure>
