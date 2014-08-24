@@ -20,13 +20,6 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <genericsetup:registerProfile
-      name="upgrade_to_2"
-      title="Upgrade sc.microsite to 2"
-      description="Upgrade sc.microsite views."
-      directory="profiles/upgrade_to_2"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
 
   <genericsetup:upgradeStep
       title="Upgrade sc.microsite to 2"
