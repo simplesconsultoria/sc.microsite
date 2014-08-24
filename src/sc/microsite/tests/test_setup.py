@@ -51,9 +51,10 @@ class InstallTestCase(BaseTestCase):
         packages = [p['id'] for p in self.qi.listInstallableProducts()]
         deps = set(HIDDEN_PRODUCTS)
         result = [p for p in deps if p in packages]
-        self.assertFalse(result,
-                         ("These packages are still visible: %s" %
-                          ", ".join(result)))
+        self.assertFalse(
+            result,
+            ('These packages are still visible: {0}'.format(', '.join(result)))
+        )
 
     def test_hidden_profiles(self):
         not_installable = []
@@ -62,9 +63,10 @@ class InstallTestCase(BaseTestCase):
             not_installable.extend(util.getNonInstallableProfiles())
         profiles = set(HIDDEN_PROFILES)
         result = [p for p in profiles if p not in not_installable]
-        self.assertFalse(result,
-                         ("These profiles are still visible: %s" %
-                          ", ".join(result)))
+        self.assertFalse(
+            result,
+            ('These profiles are still visible: {0}'.format(', '.join(result)))
+        )
 
 
 class TestUpgrade(BaseTestCase):
