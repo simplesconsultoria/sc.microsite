@@ -1,40 +1,33 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="sc.microsite">
 
-  <genericsetup:registerProfile
+  <!-- Profiles -->
+  <gs:registerProfile
       name="default"
-      title="sc.microsite"
+      title="Microsite"
       description="A very basic Dexterity-based container to be used as a microsite."
       directory="profiles/default"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <genericsetup:registerProfile
+  <gs:registerProfile
       name="uninstall"
-      title="sc.microsite uninstall"
+      title="Microsite (Uninstall)"
       directory="profiles/uninstall"
-      description="Uninstall profile for the sc.microsite package."
+      description="Uninstall profile for the Microsite package."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <genericsetup:registerProfile
-      name="upgrade_to_2"
-      title="Upgrade sc.microsite to 2"
-      description="Upgrade sc.microsite views."
-      directory="profiles/upgrade_to_2"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+  <!-- Include upgrades -->
+  <include package='.upgrades' />
 
-  <genericsetup:upgradeStep
-      title="Upgrade sc.microsite to 2"
-      description="Upgrade sc.microsite views."
-      source="*"
-      destination="2"
-      handler=".upgradehandlers.upgrade_to_2"
-      profile="sc.microsite:default"
-      />
+  <!-- Hide from quickinstaller -->
+  <utility factory=".config.HiddenProducts" name="sc.microsite" />
+
+  <!-- Hide from site creation -->
+  <utility factory=".config.HiddenProfiles" name="sc.microsite" />
 
 </configure>

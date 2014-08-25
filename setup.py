@@ -32,7 +32,7 @@ setup(
         "Topic :: Office/Business :: News/Diary",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    keywords='plone microsite dexterity',
+    keywords='plone microsite dexterity hotsite',
     author='Simples Consultoria',
     author_email='products@simplesconsultoria.com.br',
     url='https://github.com/simplesconsultoria/sc.microsite',

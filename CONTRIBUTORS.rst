@@ -1,11 +1,12 @@
 Share and Enjoy
 ---------------
 
-``sc.microsite`` would not have been possible without the contribution of
+``Microsite`` would not have been possible without the contribution of
 the following people:
 
 - Héctor Velarde
 - Juan Pablo Giménez
+- Érico Andrei
 - `Xenatt`_ (icon)
 
 Development sponsored by Simples Consultoria.

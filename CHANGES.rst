@@ -6,6 +6,9 @@ There's a frood who really knows where his towel is.
 1.0b3 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Improve setup testing
+  [ericof]
+
 - Enable ``IPublication`` behavior by default to add effective date and expiration date fields to the Microsite content type.
   [hvelarde]
 
