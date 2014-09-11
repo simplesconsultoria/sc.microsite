@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
+from plone import api
 from plone.testing.z2 import Browser
 from Products.CMFPlone.interfaces import INonInstallable
 from Products.GenericSetup.upgrade import listUpgradeSteps
+from sc.microsite.config import ADD_PERMISSION
 from sc.microsite.config import HIDDEN_PRODUCTS
 from sc.microsite.config import HIDDEN_PROFILES
 from sc.microsite.config import PROJECTNAME
@@ -85,12 +87,13 @@ class TestUpgrade(BaseTestCase):
     def run_upgrade(self, source, dest):
         self.st.setLastVersionForProfile(self.profile, source)
         # Get all upgrade steps
-        steps = self.get_upgrade_steps(source, dest)
+        upgrade_steps = self.get_upgrade_steps(source, dest)
         # Execute them
-        for step in steps:
-            if isinstance(step, list):
-                step = step[0]
-            step['step'].doStep(self.st)
+        for steps in upgrade_steps:
+            if not (isinstance(steps, list)):
+                steps = [steps, ]
+            for step in steps:
+                step['step'].doStep(self.st)
 
     def test_to1000_available(self):
         source, dest = ('1', '1000')
@@ -126,6 +129,21 @@ class TestUpgrade(BaseTestCase):
         roles_of_permission = portal.rolesOfPermission('sc.microsite: Add Microsite')
         roles = [role['name'] for role in roles_of_permission if role['selected']]
         self.assertEqual(roles, ['Editor', 'Manager', 'Owner'])
+
+    def test_to1001_fix_permission(self):
+        with api.env.adopt_roles(['Manager']):
+            microsite = api.content.create(
+                container=self.portal,
+                type='sc.microsite',
+                id='microsite',
+            )
+        # Manually add Manager role to this permission
+        microsite.manage_permission(ADD_PERMISSION, roles=['Manager', ])
+        source, dest = ('1000', '1001')
+        self.run_upgrade(source, dest)
+        roles_of_permission = microsite.rolesOfPermission('sc.microsite: Add Microsite')
+        roles = [role['name'] for role in roles_of_permission if role['selected']]
+        self.assertEqual(roles, [])
 
 
 class UninstallTestCase(BaseTestCase):

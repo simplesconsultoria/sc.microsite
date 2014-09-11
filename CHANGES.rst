@@ -9,6 +9,9 @@ There's a frood who really knows where his towel is.
 - Microsite creation now requires *sc.microsite: Add Microsite* permission
   [ericof]
 
+- Add an event subscriber to disable the creation of a Microsite inside a Microsite.
+  [ericof]
+
 
 1.0b3 (2014-08-25)
 ^^^^^^^^^^^^^^^^^^

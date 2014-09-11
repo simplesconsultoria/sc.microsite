@@ -24,6 +24,12 @@
           handler=".handler.apply_profile"
           />
 
+      <gs:upgradeStep
+          title="Fix permission on existing Microsites"
+          description="Fix 'sc.microsite: Add Microsite permission' for existing Microsites"
+          handler=".handler.fix_add_permission_existing_microsites"
+          />
+
   </gs:upgradeSteps>
 
 </configure>
