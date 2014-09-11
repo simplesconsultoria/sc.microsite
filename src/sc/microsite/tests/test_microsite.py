@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from AccessControl import Unauthorized
 from collective.behavior.localdiazo.behavior import ILocalDiazo
 from collective.behavior.localregistry.behavior import ILocalRegistry
 from plone import api
@@ -77,3 +78,38 @@ class CoverIntegrationTestCase(unittest.TestCase):
         self.m1.subfolder.setConstrainTypesMode(ACQUIRE)
         self.assertEqual(self.m1.subfolder.getLocallyAllowedTypes(), [])
         self.assertEqual(self.m1.subfolder.getImmediatelyAddableTypes(), [])
+
+    def test_microsite_add_permission_manager(self):
+        with api.env.adopt_roles(['Manager']):
+            microsite = api.content.create(self.portal, 'sc.microsite', 'new_microsite')
+            self.assertEqual(microsite.portal_type, 'sc.microsite')
+
+    def test_microsite_add_permission_editor(self):
+        with api.env.adopt_roles(['Editor']):
+            microsite = api.content.create(self.portal, 'sc.microsite', 'new_microsite')
+            self.assertEqual(microsite.portal_type, 'sc.microsite')
+
+    def test_microsite_add_permission_owner(self):
+        with api.env.adopt_roles(['Owner']):
+            microsite = api.content.create(self.portal, 'sc.microsite', 'new_microsite')
+            self.assertEqual(microsite.portal_type, 'sc.microsite')
+
+    def test_microsite_add_permission_reviewer(self):
+        with api.env.adopt_roles(['Reviewer']):
+            self.assertRaises(
+                Unauthorized,
+                api.content.create,
+                self.portal,
+                **{'type': 'sc.microsite',
+                   'id': 'new_microsite'}
+            )
+
+    def test_microsite_add_permission_member(self):
+        with api.env.adopt_roles(['Member']):
+            self.assertRaises(
+                Unauthorized,
+                api.content.create,
+                self.portal,
+                **{'type': 'sc.microsite',
+                   'id': 'new_microsite'}
+            )

@@ -40,7 +40,7 @@
     <element value="folder_listing"/>
   </property>
   <property name="default_view_fallback">False</property>
-  <property name="add_permission">cmf.AddPortalContent</property>
+  <property name="add_permission">sc.microsite.add_microsite</property>
 
   <!-- Method aliases -->
   <alias from="(Default)" to="(dynamic view)" />

@@ -8,6 +8,11 @@
 
   <five:registerPackage package="." />
 
+  <permission
+    id="sc.microsite.add_microsite"
+    title="sc.microsite: Add Microsite"
+  />
+
   <include package="collective.behavior.localdiazo" />
   <include package="collective.behavior.localregistry" />
   <include package="five.grok" />
