@@ -34,7 +34,7 @@ class InstallTestCase(BaseTestCase):
     def test_version(self):
         self.assertEqual(
             self.st.getLastVersionForProfile(self.profile),
-            (u'1000',)
+            (u'1001',)
         )
 
     def test_static_resource_grokker(self):
@@ -113,6 +113,19 @@ class TestUpgrade(BaseTestCase):
             behavior,
             fti.behaviors
         )
+
+    def test_to1001_available(self):
+        source, dest = ('1000', '1001')
+        steps = self.get_upgrade_steps(source, dest)
+        self.assertEqual(len(steps), 1)
+
+    def test_to1001_rolemap(self):
+        source, dest = ('1000', '1001')
+        self.run_upgrade(source, dest)
+        portal = self.portal
+        roles_of_permission = portal.rolesOfPermission('sc.microsite: Add Microsite')
+        roles = [role['name'] for role in roles_of_permission if role['selected']]
+        self.assertEqual(roles, ['Editor', 'Manager', 'Owner'])
 
 
 class UninstallTestCase(BaseTestCase):

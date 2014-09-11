@@ -2,5 +2,6 @@
 
   <!-- Upgrades -->
   <include package=".v1000" />
+  <include package=".v1001" />
 
 </configure>

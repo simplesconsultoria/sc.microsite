@@ -7,10 +7,12 @@ PROJECTNAME = 'sc.microsite'
 
 HIDDEN_PRODUCTS = [
     'sc.microsite.upgrades.v1000',
+    'sc.microsite.upgrades.v1001',
 ]
 
 HIDDEN_PROFILES = [
     'sc.microsite:uninstall',
+    'sc.microsite.upgrades.v1001:default',
 ]
 
 
