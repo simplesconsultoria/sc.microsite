@@ -9,6 +9,6 @@ the following people:
 - Érico Andrei
 - `Xenatt`_ (icon)
 
-Development sponsored by Simples Consultoria.
+Development sponsored by `Simples Consultoria <http://www.simplesconsultoria.com.br>`_.
 
 .. _`Xenatt`: https://www.iconfinder.com/iconsets/minimalism
