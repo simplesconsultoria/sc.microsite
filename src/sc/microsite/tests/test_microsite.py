@@ -121,3 +121,15 @@ class MicrositeIntegrationTestCase(unittest.TestCase):
                 **{'type': 'sc.microsite',
                    'id': 'new_microsite'}
             )
+
+    def test_microsite_inside_microsite(self):
+        with api.env.adopt_roles(['Manager']):
+            microsite = api.content.create(self.portal, 'sc.microsite', 'new_microsite')
+            # It won't be possible to create a sc.microsite inside a sc.microsite
+            self.assertRaises(
+                Unauthorized,
+                api.content.create,
+                microsite,
+                **{'type': 'sc.microsite',
+                   'id': 'new_microsite'}
+            )

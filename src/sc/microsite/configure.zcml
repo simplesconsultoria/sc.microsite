@@ -17,6 +17,8 @@
   <include package="collective.behavior.localregistry" />
   <include package="five.grok" />
   <include package="plone.app.dexterity" />
+  <include package=".subscribers" />
+
   <grok:grok package="." />
 
   <include file="profiles.zcml" />

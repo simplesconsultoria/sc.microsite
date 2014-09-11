@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+    <subscriber
+        for="sc.microsite.interfaces.IMicrosite
+             zope.lifecycleevent.IObjectCreatedEvent"
+        handler="sc.microsite.subscribers.microsite.change_add_permission"
+        />
+
+</configure>

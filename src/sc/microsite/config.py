@@ -3,6 +3,8 @@ from Products.CMFQuickInstallerTool import interfaces as qi_interfaces
 from Products.CMFPlone import interfaces as st_interfaces
 from zope.interface import implements
 
+ADD_PERMISSION = 'sc.microsite: Add Microsite'
+
 PROJECTNAME = 'sc.microsite'
 
 HIDDEN_PRODUCTS = [
