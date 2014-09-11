@@ -103,6 +103,14 @@ class MicrositeIntegrationTestCase(unittest.TestCase):
                 **{'type': 'sc.microsite',
                    'id': 'new_microsite'}
             )
+        # Now change permission to allow Reviewer
+        self.portal.manage_permission(
+            'sc.microsite: Add Microsite',
+            roles=['Reviewer', ]
+        )
+        with api.env.adopt_roles(['Reviewer']):
+            microsite = api.content.create(self.portal, 'sc.microsite', 'new_microsite')
+            self.assertEqual(microsite.portal_type, 'sc.microsite')
 
     def test_microsite_add_permission_member(self):
         with api.env.adopt_roles(['Member']):
