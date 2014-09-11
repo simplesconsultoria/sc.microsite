@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="sc.microsite"
+    meta_type="Dexterity FTI"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="sc.microsite">
+
+  <property name="add_permission">sc.microsite.add_microsite</property>
+
+</object>

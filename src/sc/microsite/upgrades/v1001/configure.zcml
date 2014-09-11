@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:gs="http://namespaces.zope.org/genericsetup">
+
+  <!-- Profiles -->
+  <gs:registerProfile
+      name="default"
+      title="Microsite: Version 1001"
+      directory="profiles"
+      description="Generic Setup profile for upgrade to v1001"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- Upgrade Steps -->
+  <gs:upgradeSteps
+        source="1000"
+        destination="1001"
+        profile="sc.microsite:default">
+
+      <gs:upgradeStep
+          title="Add sc.microsite: Add Microsite permission"
+          description="Microsite creation now requires a specific permission"
+          handler=".handler.apply_profile"
+          />
+
+  </gs:upgradeSteps>
+
+</configure>
