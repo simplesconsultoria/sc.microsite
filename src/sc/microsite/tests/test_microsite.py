@@ -16,7 +16,7 @@ from zope.component import queryUtility
 import unittest
 
 
-class CoverIntegrationTestCase(unittest.TestCase):
+class MicrositeIntegrationTestCase(unittest.TestCase):
 
     layer = INTEGRATION_TESTING
 
