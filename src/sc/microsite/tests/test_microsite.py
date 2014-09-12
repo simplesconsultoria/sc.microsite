@@ -79,57 +79,6 @@ class MicrositeIntegrationTestCase(unittest.TestCase):
         self.assertEqual(self.m1.subfolder.getLocallyAllowedTypes(), [])
         self.assertEqual(self.m1.subfolder.getImmediatelyAddableTypes(), [])
 
-    def test_microsite_add_permission_manager(self):
-        with api.env.adopt_roles(['Manager']):
-            microsite = api.content.create(self.portal, 'sc.microsite', 'new_microsite')
-            self.assertEqual(microsite.portal_type, 'sc.microsite')
-
-    def test_microsite_add_permission_editor(self):
-        with api.env.adopt_roles(['Editor']):
-            microsite = api.content.create(self.portal, 'sc.microsite', 'new_microsite')
-            self.assertEqual(microsite.portal_type, 'sc.microsite')
-
-    def test_microsite_add_permission_owner(self):
-        with api.env.adopt_roles(['Owner']):
-            microsite = api.content.create(self.portal, 'sc.microsite', 'new_microsite')
-            self.assertEqual(microsite.portal_type, 'sc.microsite')
-
-    def test_microsite_add_permission_reviewer(self):
-        with api.env.adopt_roles(['Reviewer']):
-            self.assertRaises(
-                Unauthorized,
-                api.content.create,
-                self.portal,
-                **{'type': 'sc.microsite',
-                   'id': 'new_microsite'}
-            )
-        # Now change permission to allow Reviewer
-        self.portal.manage_permission(
-            'sc.microsite: Add Microsite',
-            roles=['Reviewer', ]
-        )
-        with api.env.adopt_roles(['Reviewer']):
-            microsite = api.content.create(self.portal, 'sc.microsite', 'new_microsite')
-            self.assertEqual(microsite.portal_type, 'sc.microsite')
-
-    def test_microsite_add_permission_member(self):
-        with api.env.adopt_roles(['Member']):
-            self.assertRaises(
-                Unauthorized,
-                api.content.create,
-                self.portal,
-                **{'type': 'sc.microsite',
-                   'id': 'new_microsite'}
-            )
-
-    def test_microsite_inside_microsite(self):
-        with api.env.adopt_roles(['Manager']):
-            microsite = api.content.create(self.portal, 'sc.microsite', 'new_microsite')
-            # It won't be possible to create a sc.microsite inside a sc.microsite
-            self.assertRaises(
-                Unauthorized,
-                api.content.create,
-                microsite,
-                **{'type': 'sc.microsite',
-                   'id': 'new_microsite'}
-            )
+    def test_can_not_add_microsite_inside_microsite(self):
+        with self.assertRaises(Unauthorized):
+            api.content.create(self.m1, 'sc.microsite', 'foo')
