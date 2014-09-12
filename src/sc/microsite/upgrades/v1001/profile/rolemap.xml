@@ -3,8 +3,9 @@
   <permissions>
     <permission name="sc.microsite: Add Microsite" acquire="True">
       <role name="Manager"/>
+      <role name="Site Administrator"/>
       <role name="Owner"/>
-      <role name="Editor"/>
+      <role name="Contributor"/>
     </permission>
   </permissions>
 </rolemap>
