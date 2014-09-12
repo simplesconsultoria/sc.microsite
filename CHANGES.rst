@@ -3,7 +3,7 @@ Changelog
 
 There's a frood who really knows where his towel is.
 
-1.0b4 (unreleased)
+1.0b4 (2014-09-12)
 ^^^^^^^^^^^^^^^^^^
 
 - An new permission ``sc.microsite: Add Microsite`` and an event subscriber are now provided to avoid the creation of a microsite inside another microsite.
