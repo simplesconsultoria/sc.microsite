@@ -32,8 +32,6 @@ class TestUpgrades(unittest.TestCase):
         upgrade_steps = self.get_upgrade_steps(source, dest)
         # Execute them
         for steps in upgrade_steps:
-            if not (isinstance(steps, list)):
-                steps = [steps, ]
             for step in steps:
                 step['step'].doStep(self.setup)
 
