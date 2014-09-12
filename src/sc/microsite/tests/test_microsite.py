@@ -24,9 +24,7 @@ class MicrositeIntegrationTestCase(unittest.TestCase):
         self.portal = self.layer['portal']
 
         with api.env.adopt_roles(['Manager']):
-            self.folder = api.content.create(self.portal, 'Folder', 'test')
-
-        self.m1 = api.content.create(self.folder, 'sc.microsite', 'm1')
+            self.m1 = api.content.create(self.portal, 'sc.microsite', 'm1')
 
     def test_adding(self):
         self.assertTrue(IMicrosite.providedBy(self.m1))
@@ -59,8 +57,8 @@ class MicrositeIntegrationTestCase(unittest.TestCase):
         self.assertTrue(INavigationRoot.providedBy(self.m1))
 
     def test_microsite_selectable_as_folder_default_view(self):
-        self.folder.setDefaultPage('m1')
-        self.assertEqual(self.folder.default_page, 'm1')
+        self.portal.setDefaultPage('m1')
+        self.assertEqual(self.portal.default_page, 'm1')
 
     def test_microsite_layouts(self):
         self.assertEqual(self.m1.getAvailableLayouts(),
