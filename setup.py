@@ -44,8 +44,10 @@ setup(
         'collective.behavior.localregistry',
         'five.grok',
         'plone.api',
+        'plone.app.content',
         'plone.app.dexterity [grok, relations]',
-        'plone.app.theming',
+        'plone.app.layout',
+        'plone.app.upgrade',
         'plone.dexterity',
         'plone.directives.form',
         'Products.CMFPlone >=4.3',
@@ -57,8 +59,8 @@ setup(
     ],
     extras_require={
         'test': [
-            'plone.app.content',
-            'plone.app.layout',
+            'AccessControl',
+            'plone.app.robotframework',  # XXX: needed by plone.app.event
             'plone.app.testing',
             'plone.testing',
             'zope.component',

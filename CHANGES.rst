@@ -6,6 +6,9 @@ There's a frood who really knows where his towel is.
 1.1b1 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Fix package dependencies.
+  [hvelarde]
+
 - Drop support for Python 2.6 and Plone 4.2.
   [hvelarde]
 
