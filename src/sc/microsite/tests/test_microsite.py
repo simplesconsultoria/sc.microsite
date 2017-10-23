@@ -6,8 +6,6 @@ from plone import api
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.dexterity.interfaces import IDexterityFTI
-from Products.ATContentTypes.lib.constraintypes import ACQUIRE
-from Products.CMFPlone.utils import _createObjectByType
 from sc.microsite.interfaces import IMicrosite
 from sc.microsite.testing import INTEGRATION_TESTING
 from zope.component import createObject
@@ -69,13 +67,13 @@ class MicrositeIntegrationTestCase(unittest.TestCase):
                           ('folder_listing', 'Standard view')])
         self.assertEqual(self.m1.getLayout(), 'folder_listing')
 
-    def test_microsite_constrain(self):
-        self.assertEqual(self.m1.getLocallyAllowedTypes(), [])
-        self.assertEqual(self.m1.getImmediatelyAddableTypes(), [])
-        _createObjectByType("Folder", self.m1, 'subfolder')
-        self.m1.subfolder.setConstrainTypesMode(ACQUIRE)
-        self.assertEqual(self.m1.subfolder.getLocallyAllowedTypes(), [])
-        self.assertEqual(self.m1.subfolder.getImmediatelyAddableTypes(), [])
+    def test_microsite_allowed_types(self):
+        allowed_types = self.m1.getLocallyAllowedTypes()
+        self.assertEqual(len(allowed_types), 7)
+
+    def test_microsite_addable_types(self):
+        addable_types = self.m1.getImmediatelyAddableTypes()
+        self.assertEqual(len(addable_types), 7)
 
     def test_can_not_add_microsite_inside_microsite(self):
         with self.assertRaises(Unauthorized):
