@@ -6,8 +6,8 @@ from sc.microsite.interfaces import IMicrosite
 
 
 class Microsite(Container):
-    """A microsite.
-    """
+    """A microsite."""
+
     grok.implements(IMicrosite)
 
     def getLocallyAllowedTypes(self):

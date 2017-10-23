@@ -21,9 +21,8 @@ class TestUpgrades(unittest.TestCase):
 
     def get_upgrade_steps(self, source, dest):
         upgradeSteps = listUpgradeSteps(self.setup, self.profile, source)
-        steps = [step for step in upgradeSteps
-                 if (step[0]['dest'] == (dest,))
-                 and (step[0]['source'] == (source,))]
+        steps = [s for s in upgradeSteps
+                 if (s[0]['dest'] == (dest,)) and (s[0]['source'] == (source,))]
         return steps
 
     def run_upgrade(self, source, dest):

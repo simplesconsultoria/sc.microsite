@@ -9,7 +9,6 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import PloneSandboxLayer
 from plone.testing.z2 import ZSERVER_FIXTURE
 
-
 import pkg_resources
 
 

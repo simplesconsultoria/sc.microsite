@@ -8,8 +8,7 @@ logger = logging.getLogger(PROJECTNAME)
 
 
 def enable_ipublication(context):
-    """Enable IPublication behavior
-    """
+    """Enable IPublication behavior."""
     behavior = 'plone.app.dexterity.behaviors.metadata.IPublication'
     portal_types = api.portal.get_tool('portal_types')
     fti = portal_types['sc.microsite']
