@@ -8,6 +8,7 @@ from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.dexterity.interfaces import IDexterityFTI
 from sc.microsite.interfaces import IMicrosite
 from sc.microsite.testing import INTEGRATION_TESTING
+from sc.microsite.testing import IS_PLONE_5
 from zope.component import createObject
 from zope.component import queryUtility
 
@@ -58,22 +59,28 @@ class MicrositeIntegrationTestCase(unittest.TestCase):
         self.portal.setDefaultPage('m1')
         self.assertEqual(self.portal.default_page, 'm1')
 
-    def test_microsite_layouts(self):
-        self.assertEqual(self.m1.getAvailableLayouts(),
-                         [('folder_summary_view', 'Summary view'),
-                          ('folder_full_view', 'All content'),
-                          ('folder_tabular_view', 'Tabular view'),
-                          ('atct_album_view', 'Thumbnail view'),
-                          ('folder_listing', 'Standard view')])
+    def test_microsite_default_layout(self):
         self.assertEqual(self.m1.getLayout(), 'folder_listing')
+
+    def test_microsite_available_layouts(self):
+        available_layouts = self.m1.getAvailableLayouts()
+        self.assertEqual(len(available_layouts), 5)
 
     def test_microsite_allowed_types(self):
         allowed_types = self.m1.getLocallyAllowedTypes()
-        self.assertEqual(len(allowed_types), 7)
+        if IS_PLONE_5:
+            # Plone 5 includes Collection also
+            self.assertEqual(len(allowed_types), 8)
+        else:
+            self.assertEqual(len(allowed_types), 7)
 
     def test_microsite_addable_types(self):
         addable_types = self.m1.getImmediatelyAddableTypes()
-        self.assertEqual(len(addable_types), 7)
+        if IS_PLONE_5:
+            # Plone 5 includes Collection also
+            self.assertEqual(len(addable_types), 8)
+        else:
+            self.assertEqual(len(addable_types), 7)
 
     def test_can_not_add_microsite_inside_microsite(self):
         with self.assertRaises(Unauthorized):
