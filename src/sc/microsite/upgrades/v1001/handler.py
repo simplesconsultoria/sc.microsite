@@ -2,12 +2,7 @@
 from plone import api
 from plone.app.upgrade.utils import loadMigrationProfile
 from sc.microsite.config import ADD_PERMISSION
-from sc.microsite.config import PROJECTNAME
-
-import logging
-
-
-logger = logging.getLogger(PROJECTNAME)
+from sc.microsite.logger import logger
 
 
 def apply_profile(context):

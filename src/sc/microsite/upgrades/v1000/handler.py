@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 from plone import api
-from sc.microsite.config import PROJECTNAME
-
-import logging
-
-logger = logging.getLogger(PROJECTNAME)
+from sc.microsite.logger import logger
 
 
 def enable_ipublication(context):
