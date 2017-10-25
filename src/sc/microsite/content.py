@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
-from five import grok
 from plone import api
 from plone.dexterity.content import Container
 from sc.microsite.interfaces import IMicrosite
+from zope.interface import implementer
 
 
+@implementer(IMicrosite)
 class Microsite(Container):
     """A microsite."""
-
-    grok.implements(IMicrosite)
 
     def getLocallyAllowedTypes(self):
         """

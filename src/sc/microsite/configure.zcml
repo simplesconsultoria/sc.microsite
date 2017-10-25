@@ -2,7 +2,6 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:five="http://namespaces.zope.org/five"
-    xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="sc.microsite">
 
@@ -15,11 +14,8 @@
 
   <include package="collective.behavior.localdiazo" />
   <include package="collective.behavior.localregistry" />
-  <include package="five.grok" />
   <include package="plone.app.dexterity" />
   <include package=".subscribers" />
-
-  <grok:grok package="." />
 
   <include file="profiles.zcml" />
 

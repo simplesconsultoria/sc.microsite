@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
+from plone.supermodel import model
 
-from plone.directives import form
 
-
-class IMicrosite(form.Schema):
-    """A microsite.
-    """
+class IMicrosite(model.Schema):
+    """A microsite."""
