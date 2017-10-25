@@ -48,6 +48,7 @@ setup(
         'plone.app.layout',
         'plone.app.upgrade',
         'plone.dexterity',
+        'plone.supermodel',
         'Products.CMFPlone >=4.3',
         'Products.CMFQuickInstallerTool',
         'Products.GenericSetup',
