@@ -36,7 +36,8 @@ class InstallTestCase(unittest.TestCase):
         from sc.microsite.config import HIDDEN_PRODUCTS
         packages = [p['id'] for p in self.qi.listInstallableProducts()]
         deps = set(HIDDEN_PRODUCTS)
-        result = [p for p in deps if p in packages]
+        # XXX: https://github.com/PyCQA/pylint/issues/2106
+        result = [p for p in deps if p in packages]  # noqa: E501; pylint: disable=comprehension-escape
         self.assertFalse(
             result,
             ('Packages still visible: {0}'.format(', '.join(result))))

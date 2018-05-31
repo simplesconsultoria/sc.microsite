@@ -28,7 +28,7 @@ before_script:
 script:
 - bin/code-analysis
 - bin/test
-- bin/pylint --py3k --disable=no-absolute-import src/sc/microsite || true
+- bin/pylint --py3k --disable=no-absolute-import src/sc/microsite
 after_success:
 - pip install coverage
 - coverage run bin/test --layer=\!Robot
