@@ -41,4 +41,4 @@ INTEGRATION_TESTING = IntegrationTesting(
     bases=(FIXTURE,), name='sc.microsite:Integration')
 
 FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(FIXTURE, ZSERVER_FIXTURE,), name='sc.microsite:Functional')
+    bases=(FIXTURE, ZSERVER_FIXTURE), name='sc.microsite:Functional')

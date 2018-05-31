@@ -39,8 +39,7 @@ class InstallTestCase(unittest.TestCase):
         result = [p for p in deps if p in packages]
         self.assertFalse(
             result,
-            ('These packages are still visible: {0}'.format(', '.join(result)))
-        )
+            ('Packages still visible: {0}'.format(', '.join(result))))
 
     def test_hidden_profiles(self):
         from sc.microsite.config import HIDDEN_PROFILES
@@ -52,8 +51,7 @@ class InstallTestCase(unittest.TestCase):
         result = [p for p in profiles if p not in not_installable]
         self.assertFalse(
             result,
-            ('These profiles are still visible: {0}'.format(', '.join(result)))
-        )
+            ('Profiles still visible: {0}'.format(', '.join(result))))
 
 
 class UninstallTestCase(unittest.TestCase):
